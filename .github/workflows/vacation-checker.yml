@@ -1,4 +1,4 @@
-name: commit counter
+name: vacation-checker-slack-bot
 on:
   push:
     branches:
