@@ -1,11 +1,8 @@
 name: vacation-checker-slack-bot
-# on:
-#   schedule:
-#   - cron: '0 0 * * SUN'
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: '0 0 * * SUN'
+
 jobs:
   check_vacation_members_and_post_slack_message:
     runs-on: ubuntu-latest
