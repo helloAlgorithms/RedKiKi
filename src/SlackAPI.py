@@ -1,6 +1,7 @@
 from slack_sdk import WebClient
 import os
 from dotenv import load_dotenv
+from datetime import datetime
 
 class SlackAPI:
     """
@@ -34,6 +35,9 @@ class SlackAPI:
             text = text,
         )
         return result
+
+if datetime.now().isocalendar()[1] % 2 == 0:
+    exit(0)
 
 load_dotenv()
 token = os.environ.get("SLACK_BOT_USER_OAUTH_TOKEN")
