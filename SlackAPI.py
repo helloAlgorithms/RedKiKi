@@ -1,4 +1,6 @@
 from slack_sdk import WebClient
+import os
+from dotenv import load_dotenv
 
 class SlackAPI:
     """
@@ -33,7 +35,8 @@ class SlackAPI:
         )
         return result
 
-token = "xoxb-3028121377251-4544761850372-7xMVGvYp3t2zIEfNZIQCXzO4"
+load_dotenv()
+token = os.environ.get("SLACK_BOT_USER_OAUTH_TOKEN")
 slack = SlackAPI(token)
 
 channel_name = "vacation-notice"
