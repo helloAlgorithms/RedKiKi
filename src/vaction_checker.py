@@ -18,7 +18,7 @@ def get_post_text(users, origin_text, defalut_text, emoji):
 			ret_text += defalut_text
 	return ret_text
 
-def run_vactino_checker():
+def run_vaction_checker():
 	load_dotenv()
 	# action per 2 weeks.
 	if datetime.now().isocalendar()[1] % 2 == 0:
