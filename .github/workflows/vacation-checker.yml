@@ -1,8 +1,7 @@
-name: commit counter
+name: vacation-checker-slack-bot
 on:
-  push:
-    branches:
-      - main
+  schedule:
+  - cron: '0 0 * * SUN [ $(expr $(date +%W) \% 2) -eq 1 ]'
 
 jobs:
   test:
