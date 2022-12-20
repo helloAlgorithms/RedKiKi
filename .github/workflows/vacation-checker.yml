@@ -21,6 +21,9 @@ jobs:
           REPO_NAME=${{ secrets.REPO_NAME }}"
           > .env
 
+      - name: print env
+        run: |
+          cat .env
       - name: Set up Python 3.10
         uses: actions/setup-python@v4
         with:
