@@ -45,4 +45,19 @@ text = "자동 생성 문구 테스트"
 
 # 채널ID 파싱
 channel_id = slack.get_channel_id(channel_name)
+#os.system("rm -rf helloAlgorithms")
+os.system("git clone https://github.com/helloAlgorithms/helloAlgorithms.git")
+print("============================")
+raw_list = list(map(str, os.popen("cd helloAlgorithms && git branch -r")))
+user_list = []
+for raw in raw_list[1::]:
+     user = raw.strip().split('/')[1]
+     user_list.append(user)
+print(user_list)
+print("============================")
+commit_count = os.popen("cd helloAlgorithms \
+        && git checkout {user} && \
+           git log --since=2.weeks --pretty=format:{git_log_format} \
+           --grep {bracket} | sort -k 3 | wc -l".format(user = user_list[0], git_log_format = '"%cr : %s"',bracket=r'['))
+print(*commit_count)
 slack.post_thread(channel_id, text)
