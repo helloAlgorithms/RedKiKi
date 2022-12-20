@@ -45,19 +45,26 @@ text = "자동 생성 문구 테스트"
 
 # 채널ID 파싱
 channel_id = slack.get_channel_id(channel_name)
-#os.system("rm -rf helloAlgorithms")
 os.system("git clone https://github.com/helloAlgorithms/helloAlgorithms.git")
 print("============================")
 raw_list = list(map(str, os.popen("cd helloAlgorithms && git branch -r")))
-user_list = []
+users = []
 for raw in raw_list[1::]:
      user = raw.strip().split('/')[1]
-     user_list.append(user)
-print(user_list)
+     users.append(user)
+users.remove("master")
+users.remove("test")
+print(users)
 print("============================")
-commit_count = os.popen("cd helloAlgorithms \
-        && git checkout {user} && \
-           git log --since=2.weeks --pretty=format:{git_log_format} \
-           --grep {bracket} | sort -k 3 | wc -l".format(user = user_list[0], git_log_format = '"%cr : %s"',bracket=r'['))
-print(*commit_count)
+users_commit_count = {}
+for user in users:
+    os.system("cd helloAlgorithms && git checkout {user}".format(user = user))
+    commit_count = os.popen("cd helloAlgorithms && \
+            git log --since=2.weeks --pretty=format:{git_log_format} \
+            --grep {bracket} | sort -k 3 | wc -l".format(user = user, git_log_format = '"%cr : %s"',bracket='"\["'))
+    users_commit_count[user] = commit_count
+
+for key,value in users_commit_count.items():
+    print(key, ":", *value)
 slack.post_thread(channel_id, text)
+os.system("rm -rf helloAlgorithms")
