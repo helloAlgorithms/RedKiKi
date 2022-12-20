@@ -7,7 +7,7 @@ on:
     branches:
       - main
 jobs:
-  test:
+  check vacation members and post slack message:
     runs-on: ubuntu-latest
     steps:
       - name: action code checkout
@@ -15,7 +15,11 @@ jobs:
       
       - name: create .env file
         run: |
-          echo "SLACK_BOT_USER_OAUTH_TOKEN=${{ secrets.SLACK_BOT_USER_OAUTH_TOKEN }}" > .env
+          echo "SLACK_BOT_USER_OAUTH_TOKEN=${{ secrets.SLACK_BOT_USER_OAUTH_TOKEN }}
+          VACATION_NOTICE_CHANNEL_NAME=${{ secrets.VACATION_NOTICE_CHANNEL_NAME }}
+          REPO_URL=${{ secrets.REPO_URL }}
+          REPO_NAME=${{ secrets.REPO_NAME }}"
+          > .env
 
       - name: Set up Python 3.10
         uses: actions/setup-python@v4
