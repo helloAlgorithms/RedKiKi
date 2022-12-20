@@ -13,8 +13,8 @@ def get_post_text(users, origin_text, defalut_text, emoji):
 		if (index + 1) % 4 == 0:
 			text += "\n"
 		ret_text += text 
-		if len(users) == 0:
-			ret_text += defalut_text
+	if len(users) == 0:
+		ret_text += defalut_text
 	return ret_text
 
 def run_vaction_checker():
