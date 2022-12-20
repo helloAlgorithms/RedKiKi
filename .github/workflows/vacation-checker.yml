@@ -15,7 +15,7 @@ jobs:
       
       - name: create .env file
         run: |
-          echo "SLACK_BOT_USER_OAUTH_TOKEN=${{ secrets.SLACK_BOT_USER_OAUTH_TOKEN }}"" > .env
+          echo "SLACK_BOT_USER_OAUTH_TOKEN=${{ secrets.SLACK_BOT_USER_OAUTH_TOKEN }}" > .env
           echo "VACATION_NOTICE_CHANNEL_NAME=${{ secrets.VACATION_NOTICE_CHANNEL_NAME }}" >> .env
           echo "REPO_URL=${{ secrets.REPO_URL }}" >> .env
           echo "REPO_NAME=${{ secrets.REPO_NAME }}" >> .env
