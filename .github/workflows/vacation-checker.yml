@@ -1,8 +1,11 @@
 name: vacation-checker-slack-bot
+# on:
+#   schedule:
+#   - cron: '0 0 * * SUN'
 on:
-  schedule:
-  - cron: '0 0 * * SUN'
-
+  push:
+    branches:
+      - main
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -25,4 +28,4 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       
       - name: check vacations and post message
-        run: python src/SlackAPI.py
+        run: python src/main.py
