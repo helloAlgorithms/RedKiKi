@@ -7,7 +7,7 @@ on:
     branches:
       - main
 jobs:
-- check vacation members and post slack message:
+  - check vacation members and post slack message:
     runs-on: ubuntu-latest
     steps:
       - name: action code checkout
