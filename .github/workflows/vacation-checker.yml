@@ -20,6 +20,7 @@ jobs:
           REPO_URL=${{ secrets.REPO_URL }}
           REPO_NAME=${{ secrets.REPO_NAME }}"
           > .env
+          cat .env
 
       - name: print env
         run: |
