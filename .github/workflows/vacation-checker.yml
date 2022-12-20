@@ -17,4 +17,4 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: check vacations and post message
-        run: python3 src/SlackAPI.py
+        run: python src/SlackAPI.py
