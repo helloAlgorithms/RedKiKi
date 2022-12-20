@@ -1,7 +1,6 @@
 import os
 from datetime import datetime
 import slack_api
-from dotenv import load_dotenv
 
 
 def get_post_text(users, origin_text, defalut_text, emoji):
@@ -19,7 +18,6 @@ def get_post_text(users, origin_text, defalut_text, emoji):
 	return ret_text
 
 def run_vaction_checker():
-	load_dotenv()
 	# action per 2 weeks.
 	if datetime.now().isocalendar()[1] % 2 == 0:
 		exit(0)
