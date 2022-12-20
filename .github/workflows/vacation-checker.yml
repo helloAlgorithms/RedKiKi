@@ -1,8 +1,7 @@
 name: vacation-checker-slack-bot
 on:
-  push:
-    branches:
-      - main
+  schedule:
+  - cron: '0 0 * * SUN'
 
 jobs:
   test:
