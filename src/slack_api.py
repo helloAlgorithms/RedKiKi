@@ -5,7 +5,6 @@ class slack_api:
     슬랙 API 핸들러
     """
     def __init__(self, token):
-        print("in slack_api", token)
         # 슬랙 클라이언트 인스턴스 생성
         self.client = WebClient(token)
         
