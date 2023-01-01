@@ -19,7 +19,7 @@ def get_post_text(users, origin_text, defalut_text, emoji):
 
 def run_vaction_checker():
 	# action per 2 weeks.
-	if datetime.now().isocalendar()[1] % 2 == 0:
+	if datetime.now().isocalendar()[1] % 2 != 0:
 		exit(0)
 
 	token = os.environ.get("SLACK_BOT_USER_OAUTH_TOKEN")
